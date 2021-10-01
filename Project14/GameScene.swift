@@ -8,7 +8,7 @@
 
 // challenge!!
 // 1. Record own voice to say 'game over' and use it
-// 2. When there's a game over, show a SKLabelNode showing the final score
+// 2. When there's a game over, show a SKLabelNode showing the final score ✅
 // 3. Use SKEmitterNode to create a smoke-like effect when penguins are hit and a separate mud-like effect when they go into or come out of a hole
 
 import SpriteKit
@@ -19,6 +19,8 @@ class GameScene: SKScene {
     var slots = [WhackSlot]()
     
     var gameScore: SKLabelNode!
+    var finalScore: SKLabelNode!
+    
     
     
     var popupTime = 0.85
@@ -120,6 +122,8 @@ class GameScene: SKScene {
             gameOver.position = CGPoint(x: 512, y: 384)
             gameOver.zPosition = 1
             addChild(gameOver)
+            gameScore.text = ""
+            displayScore()
             return
         }
         
@@ -143,6 +147,17 @@ class GameScene: SKScene {
             self?.createEnemy()
         }
         
+        
+    }
+    
+    
+    func displayScore() {
+        finalScore = SKLabelNode(fontNamed: "Chalkduster")
+        finalScore.fontSize = 48
+        finalScore.text = "Your score: \(score)"
+        finalScore.position = CGPoint(x: 512, y: 300)
+        finalScore.zPosition = 1
+        addChild(finalScore)
         
     }
     
