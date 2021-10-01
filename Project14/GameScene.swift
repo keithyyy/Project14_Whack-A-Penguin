@@ -114,7 +114,7 @@ class GameScene: SKScene {
         
         numRounds += 1
         
-        if numRounds >= 30 {
+        if numRounds >= 10 {
             for slot in slots {
                 slot.hide()
             }
@@ -153,6 +153,8 @@ class GameScene: SKScene {
     
     func displayScore() {
         finalScore = SKLabelNode(fontNamed: "Chalkduster")
+        finalScore.fontColor = UIColor.red
+        
         finalScore.fontSize = 48
         finalScore.text = "Your score: \(score)"
         finalScore.position = CGPoint(x: 512, y: 300)
