@@ -19,7 +19,8 @@ class GameViewController: UIViewController {
             if let scene = SKScene(fileNamed: "GameScene") {
                 // Set the scale mode to scale to fit the window
                 scene.scaleMode = .aspectFill
-                
+//                ^ this is what causes the scorelabel to spill over
+//                scene.scaleMode = .fill
                 // Present the scene
                 view.presentScene(scene)
             }
